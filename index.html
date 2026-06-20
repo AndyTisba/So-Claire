@@ -117,18 +117,14 @@ document.addEventListener('DOMContentLoaded', async function() {
     // The manifest bytes are ours; SRI protects against CDN compromise, not this.
     template = template.replace(/\s+integrity="[^"]*"/gi, '').replace(/\s+crossorigin="[^"]*"/gi, '');
 
+    const mobileCSS = '<style id="mobile-responsive">@media (max-width: 768px) { nav > div[style*="padding: 0px 36px"] { padding: 0 16px !important; height: 58px !important; } nav button span[style*="font-size: 17px"] { font-size: 14px !important; } nav button span[style*="font-size: 9px"] { display: none !important; } nav div[style*="gap: 36px"] { gap: 0 !important; } nav div[style*="gap: 36px"] > button { display: none !important; } nav div[style*="gap: 36px"] > a { padding: 9px 14px !important; font-size: 10px !important; } section[style*="padding: 96px 36px 88px"] { padding: 52px 16px 52px !important; } div[style*="grid-template-columns: repeat(3, 1fr)"][style*="gap: 28px"] { grid-template-columns: 1fr !important; gap: 20px !important; } div[style*="padding: 80px 36px"] { padding: 52px 20px !important; } div[style*="grid-template-columns: repeat(3, 1fr)"][style*="gap: 64px"] { grid-template-columns: 1fr !important; gap: 36px !important; } section[style*="padding: 20px 36px 110px"] { padding: 40px 16px 56px !important; } div[style*="grid-template-columns: 5fr 7fr"] { grid-template-columns: 1fr !important; gap: 32px !important; } div[style*="aspect-ratio: 3 / 4"] { aspect-ratio: 4 / 3 !important; } div[style*="width: 360px"][style*="flex: 0 0 auto"] { width: calc(100vw - 48px) !important; padding: 24px !important; } footer { padding: 48px 16px 32px !important; } div[style*="grid-template-columns: 2.2fr 1fr 1fr"] { grid-template-columns: 1fr !important; gap: 36px !important; margin-bottom: 36px !important; } }</style>';
     const resourceScript = '<script>window.__resources = ' +
       JSON.stringify(resourceMap).split('</' + 'script>').join('<\\/' + 'script>') +
       ';</' + 'script>';
-    // Inject after <head> so the DOCTYPE stays first; prepending the script
-    // would push the parser into quirks mode. DOMParser always emits a <head>
-    // (synthesizing one if the source HTML omitted it) but may carry
-    // attributes through, so match the full opening tag. slice() rather than
-    // replace() keeps us clear of $-pattern substitution in resourceScript.
     const headOpen = template.match(/<head[^>]*>/i);
     if (headOpen) {
       const i = headOpen.index + headOpen[0].length;
-      template = template.slice(0, i) + resourceScript + template.slice(i);
+      template = template.slice(0, i) + mobileCSS + resourceScript + template.slice(i);
     }
 
     // Parse the template and swap the root element. Scripts inserted via
