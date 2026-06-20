@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Appartement Cabanyal — Sofyane & Claire</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #F9F7F5;
+      font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      color: #5C5045;
+    }
+
+    /* Nav */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(249,247,245,0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #E8E0D9;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      height: 60px;
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 18px;
+      font-weight: 500;
+      color: #5C5045;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      color: #A3907E;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active { color: #5C5045; }
+
+    /* Gallery hero */
+    .gallery {
+      margin-top: 60px;
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      grid-template-rows: 320px 200px;
+      gap: 4px;
+      height: 528px;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-item.main { grid-row: span 2; }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      max-width: 960px;
+      margin: 32px auto 0;
+      padding: 0 32px;
+      font-size: 13px;
+      color: #A3907E;
+    }
+
+    .breadcrumb a {
+      color: #A3907E;
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover { color: #5C5045; }
+
+    /* Layout */
+    .layout {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 40px 32px 80px;
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 64px;
+      align-items: start;
+    }
+
+    /* Main content */
+    .property-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 300;
+      color: #5C5045;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .property-location {
+      font-size: 14px;
+      color: #A3907E;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .property-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+
+    .tag {
+      background: #F0EAE3;
+      color: #5C5045;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      padding: 6px 14px;
+      border-radius: 50px;
+    }
+
+    .property-desc {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #7A7A7A;
+      margin-bottom: 40px;
+    }
+
+    .property-desc p + p { margin-top: 14px; }
+
+    /* Features */
+    .features-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 22px;
+      font-weight: 500;
+      color: #5C5045;
+      margin-bottom: 20px;
+      padding-top: 32px;
+      border-top: 1px solid #E8E0D9;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 24px;
+      margin-bottom: 40px;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .feature-item::before {
+      content: '✓';
+      color: #A3907E;
+      font-size: 12px;
+      flex-shrink: 0;
+    }
+
+    /* Booking card */
+    .booking-card {
+      position: sticky;
+      top: 80px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 10px 40px rgba(92,80,69,0.13);
+      padding: 32px;
+    }
+
+    .booking-price {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 36px;
+      font-weight: 400;
+      color: #5C5045;
+    }
+
+    .booking-price span {
+      font-size: 16px;
+      font-weight: 300;
+      color: #A3907E;
+    }
+
+    .booking-divider {
+      height: 1px;
+      background: #E8E0D9;
+      margin: 24px 0;
+    }
+
+    .booking-details {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .booking-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .booking-row strong { color: #5C5045; }
+
+    .btn-book {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: #25D365;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 16px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      width: 100%;
+      box-shadow: 0 4px 22px rgba(37,211,101,0.38);
+      transition: box-shadow 0.2s, transform 0.15s;
+    }
+
+    .btn-book:hover {
+      box-shadow: 0 8px 30px rgba(37,211,101,0.5);
+      transform: translateY(-1px);
+    }
+
+    .booking-note {
+      margin-top: 14px;
+      font-size: 12px;
+      color: #BDB1A6;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: #5C5045;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 12px 24px;
+      border: 1px solid #C4B5A8;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.2s;
+      margin-top: 12px;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .btn-secondary:hover { background: #F0EAE3; }
+
+    /* Footer */
+    footer {
+      background: #342A24;
+      color: #BDB1A6;
+      text-align: center;
+      padding: 32px;
+      font-size: 13px;
+    }
+
+    footer a { color: #BDB1A6; text-decoration: none; }
+
+    /* Barre de réservation mobile (cachée sur desktop) */
+    .booking-bar-mobile {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+
+      .gallery {
+        grid-template-columns: 1fr;
+        grid-template-rows: 240px 120px 120px;
+        height: auto;
+      }
+
+      .gallery-item.main { grid-row: span 1; }
+
+      .layout {
+        grid-template-columns: 1fr;
+        padding: 32px 20px 0;
+        gap: 0;
+      }
+
+      /* Cache la sidebar de réservation sur mobile */
+      .booking-sidebar { display: none; }
+
+      .features-grid { grid-template-columns: 1fr; }
+
+      /* Compense la barre fixe en bas */
+      footer { padding-bottom: calc(32px + env(safe-area-inset-bottom)); }
+      .layout { padding-bottom: calc(96px + env(safe-area-inset-bottom)); }
+
+      /* Barre fixe pleine largeur en bas */
+      .booking-bar-mobile {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        position: fixed;
+        bottom: 0; left: 0; right: 0;
+        z-index: 90;
+        background: #fff;
+        border-top: 1px solid #E8E0D9;
+        padding: 12px 20px;
+        padding-bottom: calc(12px + env(safe-area-inset-bottom));
+        box-shadow: 0 -4px 20px rgba(92,80,69,0.10);
+      }
+
+      .booking-bar-info {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        flex-shrink: 0;
+      }
+
+      .booking-bar-label {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-size: 20px;
+        font-weight: 400;
+        color: #5C5045;
+        line-height: 1;
+      }
+
+      .booking-bar-sub {
+        font-size: 12px;
+        color: #A3907E;
+        letter-spacing: 0.02em;
+      }
+
+      .booking-bar-cta {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: #25D365;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 12px 20px;
+        border-radius: 6px;
+        text-decoration: none;
+        white-space: nowrap;
+        box-shadow: 0 4px 16px rgba(37,211,101,0.38);
+        flex-shrink: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Sofyane &amp; Claire</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="home-cabanyal.html" class="active">Cabanyal</a></li>
+      <li><a href="casa-plage-nules.html">Nules</a></li>
+    </ul>
+  </nav>
+
+  <div class="gallery">
+    <div class="gallery-item main"><img src="assets/cabanyal-appartement/photo-01.jpg" alt="Appartement Cabanyal"></div>
+    <div class="gallery-item"><img src="assets/cabanyal-appartement/photo-02.jpg" alt="Séjour"></div>
+    <div class="gallery-item"><img src="assets/cabanyal-appartement/photo-03.jpg" alt="Chambre"></div>
+  </div>
+
+  <div class="breadcrumb">
+    <a href="index.html">Accueil</a> · <a href="home-cabanyal.html">Cabanyal</a> · Appartement
+  </div>
+
+  <div class="layout">
+
+    <!-- Main info -->
+    <div>
+      <h1 class="property-title">Appartement<br>Cabanyal</h1>
+      <p class="property-location">El Cabanyal · Valence, Espagne</p>
+
+      <div class="property-tags">
+        <span class="tag">2 personnes</span>
+        <span class="tag">1 chambre</span>
+        <span class="tag">1 salle de bain</span>
+        <span class="tag">Plage à 5 min</span>
+        <span class="tag">Climatisation</span>
+      </div>
+
+      <div class="property-desc">
+        <p>Un appartement lumineux niché au cœur d'El Cabanyal, le quartier de pêcheurs devenu l'un des plus vibrants de Valence. Rénové avec soin, il allie confort moderne et caractère méditerranéen.</p>
+        <p>Depuis vos fenêtres, vous percevez l'énergie authentique du quartier : ses maisons modernistes aux azulejos colorés, ses marchés de proximité et ses terrasses animées. La plage de la Malvarrosa est accessible à pied en cinq minutes.</p>
+      </div>
+
+      <h2 class="features-title">Équipements</h2>
+      <div class="features-grid">
+        <div class="feature-item">Climatisation réversible</div>
+        <div class="feature-item">Wi-Fi haut débit</div>
+        <div class="feature-item">Cuisine équipée</div>
+        <div class="feature-item">Machine à laver</div>
+        <div class="feature-item">Literie de qualité hôtelière</div>
+        <div class="feature-item">Serviettes & draps fournis</div>
+        <div class="feature-item">Coffre-fort</div>
+        <div class="feature-item">TV écran plat</div>
+        <div class="feature-item">Balcon / terrasse</div>
+        <div class="feature-item">Vélos disponibles</div>
+      </div>
+
+      <h2 class="features-title">Le quartier</h2>
+      <div class="property-desc">
+        <p>El Cabanyal offre une expérience valencienne authentique loin des circuits touristiques classiques. Marchés de producteurs, restaurants de paella familiale et galeries d'art indépendantes se côtoient dans un quartier en pleine renaissance culturelle.</p>
+      </div>
+      <a href="home-cabanyal.html" style="display:inline-flex;align-items:center;gap:6px;color:#A3907E;font-size:13px;text-decoration:none;letter-spacing:0.04em;margin-top:8px;">
+        Découvrir le quartier →
+      </a>
+    </div>
+
+    <!-- Booking card (sidebar desktop) -->
+    <div class="booking-sidebar">
+      <div class="booking-card">
+        <div class="booking-price">Sur demande <span>/ nuit</span></div>
+        <div class="booking-divider"></div>
+        <div class="booking-details">
+          <div class="booking-row">
+            <span>Capacité</span>
+            <strong>2 personnes</strong>
+          </div>
+          <div class="booking-row">
+            <span>Séjour minimum</span>
+            <strong>3 nuits</strong>
+          </div>
+          <div class="booking-row">
+            <span>Check-in</span>
+            <strong>15h00</strong>
+          </div>
+          <div class="booking-row">
+            <span>Check-out</span>
+            <strong>11h00</strong>
+          </div>
+        </div>
+
+        <a href="https://wa.me/33600000000" class="btn-book">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Réserver via WhatsApp
+        </a>
+        <a href="mailto:contact@sofyane-claire.com" class="btn-secondary">Envoyer un email</a>
+
+        <p class="booking-note">Réponse garantie sous 24h.<br>Annulation flexible.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>© 2026 Sofyane &amp; Claire · Valence, Espagne · <a href="index.html">Retour à l'accueil</a></p>
+  </footer>
+
+  <!-- Barre de réservation fixe (mobile uniquement) -->
+  <div class="booking-bar-mobile">
+    <div class="booking-bar-info">
+      <span class="booking-bar-label">Sur demande</span>
+      <span class="booking-bar-sub">2 personnes · 3 nuits min.</span>
+    </div>
+    <a href="https://wa.me/33600000000" class="booking-bar-cta">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Réserver
+    </a>
+  </div>
+
+</body>
+</html>
