@@ -8,10 +8,13 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    html { overflow-x: hidden; }
+
     body {
       background: #F9F7F5;
       font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
       color: #5C5045;
+      overflow-x: hidden;
     }
 
     /* ── Nav ── */
@@ -220,9 +223,10 @@
       box-shadow: 0 2px 18px rgba(92,80,69,0.07);
       overflow: hidden;
       transition: box-shadow 0.35s, transform 0.35s;
-      text-decoration: none;
       display: block;
       color: inherit;
+      min-width: 0;
+      cursor: pointer;
     }
 
     .prop-card:hover {
@@ -736,7 +740,7 @@
     <div class="props-grid">
 
       <!-- Appartement Cabanyal -->
-      <a href="appartement-cabanyal.html" class="prop-card">
+      <div class="prop-card" onclick="window.location.href='appartement-cabanyal.html'" role="link" tabindex="0" onkeydown="if(event.key==='Enter')window.location.href='appartement-cabanyal.html'">
         <div class="prop-image">
           <img src="assets/cabanyal-appartement/photo-01.jpg" alt="Appartement Cabanyal" loading="lazy">
         </div>
@@ -749,10 +753,10 @@
             <a href="https://wa.me/34600000000" target="_blank" class="btn-outline" onclick="event.stopPropagation()">Contacter</a>
           </div>
         </div>
-      </a>
+      </div>
 
       <!-- Maison Cabanyal -->
-      <a href="home-cabanyal.html" class="prop-card">
+      <div class="prop-card" onclick="window.location.href='home-cabanyal.html'" role="link" tabindex="0" onkeydown="if(event.key==='Enter')window.location.href='home-cabanyal.html'">
         <div class="prop-image">
           <img src="assets/cabanyal-maison/photo-01.jpg" alt="Maison Cabanyal" loading="lazy">
         </div>
@@ -765,10 +769,10 @@
             <a href="https://wa.me/34600000000" target="_blank" class="btn-outline" onclick="event.stopPropagation()">Contacter</a>
           </div>
         </div>
-      </a>
+      </div>
 
       <!-- Casa Plage Nules -->
-      <a href="casa-plage-nules.html" class="prop-card">
+      <div class="prop-card" onclick="window.location.href='casa-plage-nules.html'" role="link" tabindex="0" onkeydown="if(event.key==='Enter')window.location.href='casa-plage-nules.html'">
         <div class="prop-image">
           <img src="assets/nules-plage/photo-01.jpg" alt="Casa Plage Nules" loading="lazy">
           <div class="prop-badge">Nouveau</div>
@@ -782,7 +786,7 @@
             <a href="https://wa.me/34600000000" target="_blank" class="btn-outline" onclick="event.stopPropagation()">Contacter</a>
           </div>
         </div>
-      </a>
+      </div>
 
     </div>
   </section>
