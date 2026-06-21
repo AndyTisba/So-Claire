@@ -67,6 +67,22 @@
     .nav-links a:hover { color: #fff; }
     nav.solid .nav-links a:hover { color: #5C5045; }
 
+    .lang-btn {
+      background: none;
+      border: 1px solid rgba(255,255,255,0.45);
+      color: rgba(255,255,255,0.75);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 5px 11px;
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s;
+      font-family: inherit;
+    }
+    nav.solid .lang-btn { border-color: #D4C8BC; color: #A3907E; }
+    .lang-btn:hover { color: #fff; border-color: rgba(255,255,255,0.9); }
+    nav.solid .lang-btn:hover { color: #5C5045; border-color: #A3907E; }
+
     /* ── Hero ── */
     .hero {
       height: 100dvh;
@@ -707,20 +723,21 @@
   <nav id="nav">
     <a href="index.html" class="nav-logo">Sofyane &amp; Claire</a>
     <ul class="nav-links">
-      <li><a href="#proprietes">Logements</a></li>
+      <li><a href="#proprietes" data-i18n="navLogements">Logements</a></li>
       <li><a href="appartement-cabanyal.html">Cabanyal</a></li>
       <li><a href="casa-plage-nules.html">Nules</a></li>
+      <li><button class="lang-btn" id="langBtn" onclick="toggleLang()">ES</button></li>
     </ul>
   </nav>
 
   <!-- Hero -->
   <div class="hero">
     <div class="hero-content">
-      <p class="hero-eyebrow">Sofyane &amp; Claire · Valencia, Espagne</p>
-      <h1 class="hero-title">Locations Vacances<br>à Valencia</h1>
+      <p class="hero-eyebrow" data-i18n="heroEyebrow">Sofyane &amp; Claire · Valencia, Espagne</p>
+      <h1 class="hero-title" data-i18n="heroTitle">Locations Vacances<br>à Valencia</h1>
       <div class="hero-divider"></div>
-      <p class="hero-subtitle">Appartements &amp; maison de charme<br>au cœur du quartier Cabanyal</p>
-      <a href="#proprietes" class="hero-cta">Voir les logements</a>
+      <p class="hero-subtitle" data-i18n="heroSubtitle">Appartements &amp; maison de charme<br>au cœur du quartier Cabanyal</p>
+      <a href="#proprietes" class="hero-cta" data-i18n="heroCta">Voir les logements</a>
     </div>
     <div class="hero-wave">
       <svg viewBox="0 0 1440 88" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
@@ -732,8 +749,8 @@
   <!-- Properties -->
   <section id="proprietes">
     <div class="props-header">
-      <p class="section-eyebrow">Nos logements</p>
-      <h2 class="section-title">Trois espaces, une seule promesse</h2>
+      <p class="section-eyebrow" data-i18n="propsEyebrow">Nos logements</p>
+      <h2 class="section-title" data-i18n="propsTitle">Trois espaces, une seule promesse</h2>
       <div class="section-rule"></div>
     </div>
 
@@ -745,12 +762,12 @@
           <img src="assets/cabanyal-appartement/photo-01.jpg" alt="Appartement Cabanyal" loading="lazy">
         </div>
         <div class="prop-body">
-          <h3 class="prop-name">Appartement Cabanyal</h3>
-          <p class="prop-capacity">6 pers. · 2 ch. · 4 lits</p>
-          <p class="prop-rating">★ 4.62 &nbsp;·&nbsp; 145 avis</p>
+          <h3 class="prop-name" data-i18n="prop1Name">Appartement Cabanyal</h3>
+          <p class="prop-capacity" data-i18n="prop1Capacity">6 pers. · 2 ch. · 4 lits</p>
+          <p class="prop-rating" data-i18n="prop1Rating">★ 4.62 &nbsp;·&nbsp; 145 avis</p>
           <div class="prop-actions">
-            <span class="btn-dark">En savoir plus</span>
-            <a href="https://wa.me/34600000000" target="_blank" class="btn-outline" onclick="event.stopPropagation()">Contacter</a>
+            <span class="btn-dark" data-i18n="btnLearnMore">En savoir plus</span>
+            <a href="https://wa.me/34600000000" target="_blank" class="btn-outline" onclick="event.stopPropagation()" data-i18n="btnContact">Contacter</a>
           </div>
         </div>
       </div>
@@ -761,12 +778,12 @@
           <img src="assets/cabanyal-maison/photo-01.jpg" alt="Maison Cabanyal" loading="lazy">
         </div>
         <div class="prop-body">
-          <h3 class="prop-name">Maison Cabanyal</h3>
-          <p class="prop-capacity">4 pers. · 1 ch. · 2 lits</p>
-          <p class="prop-rating">★ 4.7 &nbsp;·&nbsp; 118 avis</p>
+          <h3 class="prop-name" data-i18n="prop2Name">Maison Cabanyal</h3>
+          <p class="prop-capacity" data-i18n="prop2Capacity">4 pers. · 1 ch. · 2 lits</p>
+          <p class="prop-rating" data-i18n="prop2Rating">★ 4.7 &nbsp;·&nbsp; 118 avis</p>
           <div class="prop-actions">
-            <span class="btn-dark">En savoir plus</span>
-            <a href="https://wa.me/34600000000" target="_blank" class="btn-outline" onclick="event.stopPropagation()">Contacter</a>
+            <span class="btn-dark" data-i18n="btnLearnMore">En savoir plus</span>
+            <a href="https://wa.me/34600000000" target="_blank" class="btn-outline" onclick="event.stopPropagation()" data-i18n="btnContact">Contacter</a>
           </div>
         </div>
       </div>
@@ -775,15 +792,15 @@
       <div class="prop-card" onclick="window.location.href='casa-plage-nules.html'" role="link" tabindex="0" onkeydown="if(event.key==='Enter')window.location.href='casa-plage-nules.html'">
         <div class="prop-image">
           <img src="assets/nules-plage/photo-01.jpg" alt="Casa Plage Nules" loading="lazy">
-          <div class="prop-badge">Nouveau</div>
+          <div class="prop-badge" data-i18n="propBadgeNew">Nouveau</div>
         </div>
         <div class="prop-body">
-          <h3 class="prop-name">Casa Plage Nules</h3>
-          <p class="prop-capacity">5 pers. · 2 ch. · 4 lits</p>
-          <p class="prop-new">✦ Nouveauté — soyez les premiers</p>
+          <h3 class="prop-name" data-i18n="prop3Name">Casa Plage Nules</h3>
+          <p class="prop-capacity" data-i18n="prop3Capacity">5 pers. · 2 ch. · 4 lits</p>
+          <p class="prop-new" data-i18n="prop3New">✦ Nouveauté — soyez les premiers</p>
           <div class="prop-actions">
-            <span class="btn-dark">En savoir plus</span>
-            <a href="https://wa.me/34600000000" target="_blank" class="btn-outline" onclick="event.stopPropagation()">Contacter</a>
+            <span class="btn-dark" data-i18n="btnLearnMore">En savoir plus</span>
+            <a href="https://wa.me/34600000000" target="_blank" class="btn-outline" onclick="event.stopPropagation()" data-i18n="btnContact">Contacter</a>
           </div>
         </div>
       </div>
@@ -796,18 +813,18 @@
     <div class="values-grid">
       <div class="value-item">
         <div class="value-line"></div>
-        <h3 class="value-title">Durabilité</h3>
-        <p class="value-desc">Certifiés par la Communauté Valencienne pour nos pratiques éco-responsables. Chaque séjour, un geste pour la planète.</p>
+        <h3 class="value-title" data-i18n="val1Title">Durabilité</h3>
+        <p class="value-desc" data-i18n="val1Desc">Certifiés par la Communauté Valencienne pour nos pratiques éco-responsables. Chaque séjour, un geste pour la planète.</p>
       </div>
       <div class="value-item">
         <div class="value-line"></div>
-        <h3 class="value-title">Superhost</h3>
-        <p class="value-desc">Reconnus Superhosts Airbnb depuis 2019. Réponses rapides, notes exceptionnelles, attention aux moindres détails.</p>
+        <h3 class="value-title" data-i18n="val2Title">Superhost</h3>
+        <p class="value-desc" data-i18n="val2Desc">Reconnus Superhosts Airbnb depuis 2019. Réponses rapides, notes exceptionnelles, attention aux moindres détails.</p>
       </div>
       <div class="value-item">
         <div class="value-line"></div>
-        <h3 class="value-title">+8 ans</h3>
-        <p class="value-desc">Huit années d'accueil de voyageurs du monde entier. Nous connaissons Valencia et nos hôtes par cœur.</p>
+        <h3 class="value-title" data-i18n="val3Title">+8 ans</h3>
+        <p class="value-desc" data-i18n="val3Desc">Huit années d'accueil de voyageurs du monde entier. Nous connaissons Valencia et nos hôtes par cœur.</p>
       </div>
     </div>
   </section>
@@ -819,16 +836,16 @@
         <span>photo Sofyane &amp; Claire</span>
       </div>
       <div>
-        <p class="section-eyebrow">Vos hôtes</p>
+        <p class="section-eyebrow" data-i18n="hostsEyebrow">Vos hôtes</p>
         <h2 class="hosts-name">Sofyane</h2>
         <h2 class="hosts-name">&amp; Claire</h2>
-        <p class="hosts-bio">Depuis plus de huit ans, nous accueillons des voyageurs du monde entier dans notre belle Valencia. Notre passion : faire de chaque séjour une expérience authentique et mémorable.</p>
-        <p class="hosts-bio">Superhosts certifiés, toujours disponibles pour vous conseiller sur les meilleures adresses, plages cachées et saveurs locales de la région.</p>
+        <p class="hosts-bio" data-i18n="hostsBio1">Depuis plus de huit ans, nous accueillons des voyageurs du monde entier dans notre belle Valencia. Notre passion : faire de chaque séjour une expérience authentique et mémorable.</p>
+        <p class="hosts-bio" data-i18n="hostsBio2">Superhosts certifiés, toujours disponibles pour vous conseiller sur les meilleures adresses, plages cachées et saveurs locales de la région.</p>
         <div class="hosts-actions">
-          <a href="https://wa.me/34600000000" target="_blank" class="btn-cta">Nous contacter</a>
+          <a href="https://wa.me/34600000000" target="_blank" class="btn-cta" data-i18n="hostsCta">Nous contacter</a>
           <div class="superhost-badge">
             <div class="superhost-star">★</div>
-            <span class="superhost-label">Superhost Airbnb · 263+ avis</span>
+            <span class="superhost-label" data-i18n="superhostLabel">Superhost Airbnb · 263+ avis</span>
           </div>
         </div>
       </div>
@@ -838,14 +855,14 @@
   <!-- Testimonials -->
   <section class="testimonials">
     <div class="testimonials-header">
-      <p class="section-eyebrow">Ce qu'ils disent</p>
-      <h2 class="section-title" style="color:#5C5045;">Témoignages de nos clients</h2>
+      <p class="section-eyebrow" data-i18n="testiEyebrow">Ce qu'ils disent</p>
+      <h2 class="section-title" style="color:#5C5045;" data-i18n="testiTitle">Témoignages de nos clients</h2>
       <div class="section-rule"></div>
       <div class="testimonials-score">
         <span class="testimonials-stars">★★★★★</span>
-        <span class="testimonials-avg">Évaluation moyenne : <strong style="color:#333; font-weight:600;">4.61 / 5</strong></span>
+        <span class="testimonials-avg" data-i18n="testiAvg">Évaluation moyenne : <strong style="color:#333; font-weight:600;">4.61 / 5</strong></span>
         <span style="color:#BDBBAC;">·</span>
-        <span class="testimonials-count">376 avis</span>
+        <span class="testimonials-count" data-i18n="testiCount">376 avis</span>
       </div>
     </div>
 
@@ -858,7 +875,7 @@
           <div class="review-initial">N</div>
           <div>
             <div class="review-name">Natalia</div>
-            <div class="review-meta">il y a 2 jours</div>
+            <div class="review-meta" data-i18n="review1Meta">il y a 2 jours</div>
           </div>
         </div>
       </div>
@@ -870,7 +887,7 @@
           <div class="review-initial">A</div>
           <div>
             <div class="review-name">Aurelie</div>
-            <div class="review-meta">octobre 2025 · 13 ans sur Airbnb</div>
+            <div class="review-meta" data-i18n="review2Meta">octobre 2025 · 13 ans sur Airbnb</div>
           </div>
         </div>
       </div>
@@ -882,7 +899,7 @@
           <div class="review-initial">Z</div>
           <div>
             <div class="review-name">Zoe</div>
-            <div class="review-meta">il y a 3 semaines · 12 ans sur Airbnb</div>
+            <div class="review-meta" data-i18n="review3Meta">il y a 3 semaines · 12 ans sur Airbnb</div>
           </div>
         </div>
       </div>
@@ -896,19 +913,19 @@
       <div>
         <h3 class="footer-brand-name">Sofyane &amp; Claire<br>Apartments</h3>
         <div class="footer-rule"></div>
-        <p class="footer-tagline">Locations vacances de charme au cœur de Valencia et sur la Costa de Azahar.</p>
+        <p class="footer-tagline" data-i18n="footerTagline">Locations vacances de charme au cœur de Valencia et sur la Costa de Azahar.</p>
         <p style="font-size:10px; color:rgba(249,247,245,0.28); letter-spacing:0.16em; text-transform:uppercase;">Superhosts · Comunitat Valenciana</p>
       </div>
       <div>
-        <p class="footer-label">Logements</p>
+        <p class="footer-label" data-i18n="footerLabelProps">Logements</p>
         <div class="footer-links">
-          <a href="appartement-cabanyal.html">Appartement Cabanyal</a>
-          <a href="home-cabanyal.html">Maison Cabanyal</a>
-          <a href="casa-plage-nules.html">Casa Plage Nules</a>
+          <a href="appartement-cabanyal.html" data-i18n="footerLink1">Appartement Cabanyal</a>
+          <a href="home-cabanyal.html" data-i18n="footerLink2">Maison Cabanyal</a>
+          <a href="casa-plage-nules.html" data-i18n="footerLink3">Casa Plage Nules</a>
         </div>
       </div>
       <div>
-        <p class="footer-label">Contact</p>
+        <p class="footer-label" data-i18n="footerLabelContact">Contact</p>
         <div class="footer-links">
           <a href="https://wa.me/34600000000" target="_blank">WhatsApp</a>
           <a href="mailto:contact@sofyaneclaire.com">Email</a>
@@ -917,25 +934,139 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Sofyane &amp; Claire · Valencia, Espagne</span>
-      <span>Superhosts Airbnb depuis 2019</span>
+      <span data-i18n="footerCopyright">© 2026 Sofyane &amp; Claire · Valencia, Espagne</span>
+      <span data-i18n="footerSuperhost">Superhosts Airbnb depuis 2019</span>
     </div>
   </footer>
 
   <script>
-    // Nav transparent → solid au scroll
+    // ── Nav scroll ──
     const nav = document.getElementById('nav');
-    function updateNav() {
-      nav.classList.toggle('solid', window.scrollY > 40);
-    }
+    function updateNav() { nav.classList.toggle('solid', window.scrollY > 40); }
     window.addEventListener('scroll', updateNav, { passive: true });
     updateNav();
 
-    // Scroll doux pour le lien hero
     document.querySelector('.hero-cta').addEventListener('click', function(e) {
       e.preventDefault();
       document.getElementById('proprietes').scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
+
+    // ── i18n ──
+    var TRANS = {
+      fr: {
+        navLogements:    'Logements',
+        heroEyebrow:     'Sofyane & Claire · Valencia, Espagne',
+        heroTitle:       'Locations Vacances<br>à Valencia',
+        heroSubtitle:    'Appartements & maison de charme<br>au cœur du quartier Cabanyal',
+        heroCta:         'Voir les logements',
+        propsEyebrow:    'Nos logements',
+        propsTitle:      'Trois espaces, une seule promesse',
+        prop1Name:       'Appartement Cabanyal',
+        prop1Capacity:   '6 pers. · 2 ch. · 4 lits',
+        prop1Rating:     '★ 4.62 &nbsp;·&nbsp; 145 avis',
+        prop2Name:       'Maison Cabanyal',
+        prop2Capacity:   '4 pers. · 1 ch. · 2 lits',
+        prop2Rating:     '★ 4.7 &nbsp;·&nbsp; 118 avis',
+        prop3Name:       'Casa Plage Nules',
+        prop3Capacity:   '5 pers. · 2 ch. · 4 lits',
+        prop3New:        '✦ Nouveauté — soyez les premiers',
+        propBadgeNew:    'Nouveau',
+        btnLearnMore:    'En savoir plus',
+        btnContact:      'Contacter',
+        val1Title:       'Durabilité',
+        val1Desc:        'Certifiés par la Communauté Valencienne pour nos pratiques éco-responsables. Chaque séjour, un geste pour la planète.',
+        val2Title:       'Superhost',
+        val2Desc:        'Reconnus Superhosts Airbnb depuis 2019. Réponses rapides, notes exceptionnelles, attention aux moindres détails.',
+        val3Title:       '+8 ans',
+        val3Desc:        'Huit années d\'accueil de voyageurs du monde entier. Nous connaissons Valencia et nos hôtes par cœur.',
+        hostsEyebrow:    'Vos hôtes',
+        hostsBio1:       'Depuis plus de huit ans, nous accueillons des voyageurs du monde entier dans notre belle Valencia. Notre passion : faire de chaque séjour une expérience authentique et mémorable.',
+        hostsBio2:       'Superhosts certifiés, toujours disponibles pour vous conseiller sur les meilleures adresses, plages cachées et saveurs locales de la région.',
+        hostsCta:        'Nous contacter',
+        superhostLabel:  'Superhost Airbnb · 263+ avis',
+        testiEyebrow:    'Ce qu\'ils disent',
+        testiTitle:      'Témoignages de nos clients',
+        testiAvg:        'Évaluation moyenne : <strong style="color:#333;font-weight:600;">4.61 / 5</strong>',
+        testiCount:      '376 avis',
+        review1Meta:     'il y a 2 jours',
+        review2Meta:     'octobre 2025 · 13 ans sur Airbnb',
+        review3Meta:     'il y a 3 semaines · 12 ans sur Airbnb',
+        footerTagline:   'Locations vacances de charme au cœur de Valencia et sur la Costa de Azahar.',
+        footerLabelProps:'Logements',
+        footerLink1:     'Appartement Cabanyal',
+        footerLink2:     'Maison Cabanyal',
+        footerLink3:     'Casa Plage Nules',
+        footerLabelContact: 'Contact',
+        footerCopyright: '© 2026 Sofyane & Claire · Valencia, Espagne',
+        footerSuperhost: 'Superhosts Airbnb depuis 2019',
+      },
+      es: {
+        navLogements:    'Alojamientos',
+        heroEyebrow:     'Sofyane & Claire · Valencia, España',
+        heroTitle:       'Alquileres Vacacionales<br>en Valencia',
+        heroSubtitle:    'Apartamentos y casa con encanto<br>en el barrio Cabanyal',
+        heroCta:         'Ver los alojamientos',
+        propsEyebrow:    'Nuestros alojamientos',
+        propsTitle:      'Tres espacios, una sola promesa',
+        prop1Name:       'Apartamento Cabanyal',
+        prop1Capacity:   '6 pers. · 2 hab. · 4 camas',
+        prop1Rating:     '★ 4.62 &nbsp;·&nbsp; 145 reseñas',
+        prop2Name:       'Casa Cabanyal',
+        prop2Capacity:   '4 pers. · 1 hab. · 2 camas',
+        prop2Rating:     '★ 4.7 &nbsp;·&nbsp; 118 reseñas',
+        prop3Name:       'Casa Playa Nules',
+        prop3Capacity:   '5 pers. · 2 hab. · 4 camas',
+        prop3New:        '✦ Novedad — sed los primeros',
+        propBadgeNew:    'Nuevo',
+        btnLearnMore:    'Saber más',
+        btnContact:      'Contactar',
+        val1Title:       'Sostenibilidad',
+        val1Desc:        'Certificados por la Comunitat Valenciana por nuestras prácticas eco-responsables. Cada estancia, un gesto por el planeta.',
+        val2Title:       'Superhost',
+        val2Desc:        'Reconocidos Superhosts de Airbnb desde 2019. Respuestas rápidas, valoraciones excepcionales, atención al detalle.',
+        val3Title:       '+8 años',
+        val3Desc:        'Ocho años acogiendo a viajeros de todo el mundo. Conocemos Valencia y a nuestros huéspedes de memoria.',
+        hostsEyebrow:    'Vuestros anfitriones',
+        hostsBio1:       'Desde hace más de ocho años acogemos a viajeros de todo el mundo en nuestra querida Valencia. Nuestra pasión: convertir cada estancia en una experiencia auténtica e inolvidable.',
+        hostsBio2:       'Superhosts certificados, siempre disponibles para recomendaros las mejores direcciones, playas escondidas y sabores locales de la región.',
+        hostsCta:        'Contáctenos',
+        superhostLabel:  'Superhost Airbnb · 263+ reseñas',
+        testiEyebrow:    'Lo que dicen',
+        testiTitle:      'Testimonios de nuestros clientes',
+        testiAvg:        'Valoración media: <strong style="color:#333;font-weight:600;">4.61 / 5</strong>',
+        testiCount:      '376 reseñas',
+        review1Meta:     'hace 2 días',
+        review2Meta:     'octubre 2025 · 13 años en Airbnb',
+        review3Meta:     'hace 3 semanas · 12 años en Airbnb',
+        footerTagline:   'Alquileres vacacionales con encanto en el corazón de Valencia y en la Costa de Azahar.',
+        footerLabelProps:'Alojamientos',
+        footerLink1:     'Apartamento Cabanyal',
+        footerLink2:     'Casa Cabanyal',
+        footerLink3:     'Casa Playa Nules',
+        footerLabelContact: 'Contacto',
+        footerCopyright: '© 2026 Sofyane & Claire · Valencia, España',
+        footerSuperhost: 'Superhosts Airbnb desde 2019',
+      }
+    };
+
+    function applyLang(lang) {
+      var t = TRANS[lang];
+      document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var key = el.dataset.i18n;
+        if (t[key] !== undefined) el.innerHTML = t[key];
+      });
+      var btn = document.getElementById('langBtn');
+      if (btn) btn.textContent = lang === 'es' ? 'FR' : 'ES';
+      document.documentElement.lang = lang;
+      localStorage.setItem('sc-lang', lang);
+    }
+
+    window.toggleLang = function() {
+      var current = localStorage.getItem('sc-lang') || 'fr';
+      applyLang(current === 'fr' ? 'es' : 'fr');
+    };
+
+    applyLang(localStorage.getItem('sc-lang') || 'fr');
   </script>
 
 </body>

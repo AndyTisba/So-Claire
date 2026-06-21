@@ -56,6 +56,20 @@
     .nav-links a:hover,
     .nav-links a.active { color: #5C5045; }
 
+    .lang-btn {
+      background: none;
+      border: 1px solid #D4C8BC;
+      color: #A3907E;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 5px 11px;
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s;
+      font-family: inherit;
+    }
+    .lang-btn:hover { color: #5C5045; border-color: #A3907E; }
+
     /* Gallery hero */
     .gallery {
       margin-top: 60px;
@@ -382,9 +396,10 @@
   <nav>
     <a href="index.html" class="nav-logo">Sofyane &amp; Claire</a>
     <ul class="nav-links">
-      <li><a href="index.html">Accueil</a></li>
+      <li><a href="index.html" data-i18n="navHome">Accueil</a></li>
       <li><a href="home-cabanyal.html" class="active">Cabanyal</a></li>
       <li><a href="casa-plage-nules.html">Nules</a></li>
+      <li><button class="lang-btn" id="langBtn" onclick="toggleLang()">ES</button></li>
     </ul>
   </nav>
 
@@ -395,48 +410,48 @@
   </div>
 
   <div class="breadcrumb">
-    <a href="index.html">Accueil</a> · <a href="home-cabanyal.html">Cabanyal</a> · Appartement
+    <a href="index.html" data-i18n="navHome">Accueil</a> · <a href="home-cabanyal.html">Cabanyal</a> · <span data-i18n="breadcrumbPage">Appartement</span>
   </div>
 
   <div class="layout">
 
     <!-- Main info -->
     <div>
-      <h1 class="property-title">Appartement<br>Cabanyal</h1>
-      <p class="property-location">El Cabanyal · Valence, Espagne</p>
+      <h1 class="property-title" data-i18n="propTitle">Appartement<br>Cabanyal</h1>
+      <p class="property-location" data-i18n="propLocation">El Cabanyal · Valence, Espagne</p>
 
       <div class="property-tags">
-        <span class="tag">2 personnes</span>
-        <span class="tag">1 chambre</span>
-        <span class="tag">1 salle de bain</span>
-        <span class="tag">Plage à 5 min</span>
-        <span class="tag">Climatisation</span>
+        <span class="tag" data-i18n="tag1">2 personnes</span>
+        <span class="tag" data-i18n="tag2">1 chambre</span>
+        <span class="tag" data-i18n="tag3">1 salle de bain</span>
+        <span class="tag" data-i18n="tag4">Plage à 5 min</span>
+        <span class="tag" data-i18n="tag5">Climatisation</span>
       </div>
 
       <div class="property-desc">
-        <p>Un appartement lumineux niché au cœur d'El Cabanyal, le quartier de pêcheurs devenu l'un des plus vibrants de Valence. Rénové avec soin, il allie confort moderne et caractère méditerranéen.</p>
-        <p>Depuis vos fenêtres, vous percevez l'énergie authentique du quartier : ses maisons modernistes aux azulejos colorés, ses marchés de proximité et ses terrasses animées. La plage de la Malvarrosa est accessible à pied en cinq minutes.</p>
+        <p data-i18n="desc1">Un appartement lumineux niché au cœur d'El Cabanyal, le quartier de pêcheurs devenu l'un des plus vibrants de Valence. Rénové avec soin, il allie confort moderne et caractère méditerranéen.</p>
+        <p data-i18n="desc2">Depuis vos fenêtres, vous percevez l'énergie authentique du quartier : ses maisons modernistes aux azulejos colorés, ses marchés de proximité et ses terrasses animées. La plage de la Malvarrosa est accessible à pied en cinq minutes.</p>
       </div>
 
-      <h2 class="features-title">Équipements</h2>
+      <h2 class="features-title" data-i18n="featuresTitle">Équipements</h2>
       <div class="features-grid">
-        <div class="feature-item">Climatisation réversible</div>
-        <div class="feature-item">Wi-Fi haut débit</div>
-        <div class="feature-item">Cuisine équipée</div>
-        <div class="feature-item">Machine à laver</div>
-        <div class="feature-item">Literie de qualité hôtelière</div>
-        <div class="feature-item">Serviettes & draps fournis</div>
-        <div class="feature-item">Coffre-fort</div>
-        <div class="feature-item">TV écran plat</div>
-        <div class="feature-item">Balcon / terrasse</div>
-        <div class="feature-item">Vélos disponibles</div>
+        <div class="feature-item" data-i18n="feat1">Climatisation réversible</div>
+        <div class="feature-item" data-i18n="feat2">Wi-Fi haut débit</div>
+        <div class="feature-item" data-i18n="feat3">Cuisine équipée</div>
+        <div class="feature-item" data-i18n="feat4">Machine à laver</div>
+        <div class="feature-item" data-i18n="feat5">Literie de qualité hôtelière</div>
+        <div class="feature-item" data-i18n="feat6">Serviettes &amp; draps fournis</div>
+        <div class="feature-item" data-i18n="feat7">Coffre-fort</div>
+        <div class="feature-item" data-i18n="feat8">TV écran plat</div>
+        <div class="feature-item" data-i18n="feat9">Balcon / terrasse</div>
+        <div class="feature-item" data-i18n="feat10">Vélos disponibles</div>
       </div>
 
-      <h2 class="features-title">Le quartier</h2>
+      <h2 class="features-title" data-i18n="neighborTitle">Le quartier</h2>
       <div class="property-desc">
-        <p>El Cabanyal offre une expérience valencienne authentique loin des circuits touristiques classiques. Marchés de producteurs, restaurants de paella familiale et galeries d'art indépendantes se côtoient dans un quartier en pleine renaissance culturelle.</p>
+        <p data-i18n="neighborDesc">El Cabanyal offre une expérience valencienne authentique loin des circuits touristiques classiques. Marchés de producteurs, restaurants de paella familiale et galeries d'art indépendantes se côtoient dans un quartier en pleine renaissance culturelle.</p>
       </div>
-      <a href="home-cabanyal.html" style="display:inline-flex;align-items:center;gap:6px;color:#A3907E;font-size:13px;text-decoration:none;letter-spacing:0.04em;margin-top:8px;">
+      <a href="home-cabanyal.html" style="display:inline-flex;align-items:center;gap:6px;color:#A3907E;font-size:13px;text-decoration:none;letter-spacing:0.04em;margin-top:8px;" data-i18n="neighborLink">
         Découvrir le quartier →
       </a>
     </div>
@@ -444,16 +459,16 @@
     <!-- Booking card (sidebar desktop) -->
     <div class="booking-sidebar">
       <div class="booking-card">
-        <div class="booking-price">Sur demande <span>/ nuit</span></div>
+        <div class="booking-price" data-i18n="bookingPrice">Sur demande <span data-i18n="bookingPerNight">/ nuit</span></div>
         <div class="booking-divider"></div>
         <div class="booking-details">
           <div class="booking-row">
-            <span>Capacité</span>
-            <strong>2 personnes</strong>
+            <span data-i18n="bookingCapacityLabel">Capacité</span>
+            <strong data-i18n="bookingCapacityVal">2 personnes</strong>
           </div>
           <div class="booking-row">
-            <span>Séjour minimum</span>
-            <strong>3 nuits</strong>
+            <span data-i18n="bookingMinStayLabel">Séjour minimum</span>
+            <strong data-i18n="bookingMinStayVal">3 nuits</strong>
           </div>
           <div class="booking-row">
             <span>Check-in</span>
@@ -467,31 +482,100 @@
 
         <a href="https://wa.me/33600000000" class="btn-book">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Réserver via WhatsApp
+          <span data-i18n="btnBookWA">Réserver via WhatsApp</span>
         </a>
-        <a href="mailto:contact@sofyane-claire.com" class="btn-secondary">Envoyer un email</a>
+        <a href="mailto:contact@sofyane-claire.com" class="btn-secondary" data-i18n="btnEmail">Envoyer un email</a>
 
-        <p class="booking-note">Réponse garantie sous 24h.<br>Annulation flexible.</p>
+        <p class="booking-note" data-i18n="bookingNote">Réponse garantie sous 24h.<br>Annulation flexible.</p>
       </div>
     </div>
 
   </div>
 
   <footer>
-    <p>© 2026 Sofyane &amp; Claire · Valence, Espagne · <a href="index.html">Retour à l'accueil</a></p>
+    <p><span data-i18n="footerText">© 2026 Sofyane &amp; Claire · Valence, Espagne</span> · <a href="index.html" data-i18n="footerBack">Retour à l'accueil</a></p>
   </footer>
 
   <!-- Barre de réservation fixe (mobile uniquement) -->
   <div class="booking-bar-mobile">
     <div class="booking-bar-info">
-      <span class="booking-bar-label">Sur demande</span>
-      <span class="booking-bar-sub">2 personnes · 3 nuits min.</span>
+      <span class="booking-bar-label" data-i18n="bookingPrice">Sur demande</span>
+      <span class="booking-bar-sub" data-i18n="mobileBarSub">2 personnes · 3 nuits min.</span>
     </div>
     <a href="https://wa.me/33600000000" class="booking-bar-cta">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      Réserver
+      <span data-i18n="btnBook">Réserver</span>
     </a>
   </div>
+
+  <script>
+    var TRANS = {
+      fr: {
+        navHome: 'Accueil',
+        breadcrumbPage: 'Appartement',
+        propTitle: 'Appartement<br>Cabanyal',
+        propLocation: 'El Cabanyal · Valence, Espagne',
+        tag1: '2 personnes', tag2: '1 chambre', tag3: '1 salle de bain', tag4: 'Plage à 5 min', tag5: 'Climatisation',
+        desc1: 'Un appartement lumineux niché au cœur d\'El Cabanyal, le quartier de pêcheurs devenu l\'un des plus vibrants de Valence. Rénové avec soin, il allie confort moderne et caractère méditerranéen.',
+        desc2: 'Depuis vos fenêtres, vous percevez l\'énergie authentique du quartier : ses maisons modernistes aux azulejos colorés, ses marchés de proximité et ses terrasses animées. La plage de la Malvarrosa est accessible à pied en cinq minutes.',
+        featuresTitle: 'Équipements',
+        feat1: 'Climatisation réversible', feat2: 'Wi-Fi haut débit', feat3: 'Cuisine équipée', feat4: 'Machine à laver',
+        feat5: 'Literie de qualité hôtelière', feat6: 'Serviettes & draps fournis', feat7: 'Coffre-fort', feat8: 'TV écran plat',
+        feat9: 'Balcon / terrasse', feat10: 'Vélos disponibles',
+        neighborTitle: 'Le quartier',
+        neighborDesc: 'El Cabanyal offre une expérience valencienne authentique loin des circuits touristiques classiques. Marchés de producteurs, restaurants de paella familiale et galeries d\'art indépendantes se côtoient dans un quartier en pleine renaissance culturelle.',
+        neighborLink: 'Découvrir le quartier →',
+        bookingPrice: 'Sur demande', bookingPerNight: '/ nuit',
+        bookingCapacityLabel: 'Capacité', bookingCapacityVal: '2 personnes',
+        bookingMinStayLabel: 'Séjour minimum', bookingMinStayVal: '3 nuits',
+        btnBookWA: 'Réserver via WhatsApp', btnEmail: 'Envoyer un email',
+        bookingNote: 'Réponse garantie sous 24h.<br>Annulation flexible.',
+        footerText: '© 2026 Sofyane & Claire · Valence, Espagne', footerBack: 'Retour à l\'accueil',
+        mobileBarSub: '2 personnes · 3 nuits min.', btnBook: 'Réserver',
+      },
+      es: {
+        navHome: 'Inicio',
+        breadcrumbPage: 'Apartamento',
+        propTitle: 'Apartamento<br>Cabanyal',
+        propLocation: 'El Cabanyal · Valencia, España',
+        tag1: '2 personas', tag2: '1 dormitorio', tag3: '1 baño', tag4: 'Playa a 5 min', tag5: 'Aire acondicionado',
+        desc1: 'Un apartamento luminoso en el corazón de El Cabanyal, el barrio de pescadores convertido en uno de los más vibrantes de Valencia. Renovado con cuidado, combina el confort moderno con el carácter mediterráneo.',
+        desc2: 'Desde vuestras ventanas percibiréis la energía auténtica del barrio: sus casas modernistas con azulejos de colores, sus mercados cercanos y sus animadas terrazas. La playa de la Malvarrosa se encuentra a cinco minutos a pie.',
+        featuresTitle: 'Equipamientos',
+        feat1: 'Aire acondicionado reversible', feat2: 'Wi-Fi de alta velocidad', feat3: 'Cocina equipada', feat4: 'Lavadora',
+        feat5: 'Ropa de cama de calidad hotelera', feat6: 'Toallas y sábanas incluidas', feat7: 'Caja fuerte', feat8: 'TV de pantalla plana',
+        feat9: 'Balcón / terraza', feat10: 'Bicicletas disponibles',
+        neighborTitle: 'El barrio',
+        neighborDesc: 'El Cabanyal ofrece una experiencia valenciana auténtica lejos de los circuitos turísticos clásicos. Mercados de productores, restaurantes de paella familiar y galerías de arte independientes conviven en un barrio en pleno renacimiento cultural.',
+        neighborLink: 'Descubrir el barrio →',
+        bookingPrice: 'A consultar', bookingPerNight: '/ noche',
+        bookingCapacityLabel: 'Capacidad', bookingCapacityVal: '2 personas',
+        bookingMinStayLabel: 'Estancia mínima', bookingMinStayVal: '3 noches',
+        btnBookWA: 'Reservar por WhatsApp', btnEmail: 'Enviar un email',
+        bookingNote: 'Respuesta garantizada en 24h.<br>Cancelación flexible.',
+        footerText: '© 2026 Sofyane & Claire · Valencia, España', footerBack: 'Volver al inicio',
+        mobileBarSub: '2 personas · 3 noches mín.', btnBook: 'Reservar',
+      }
+    };
+
+    function applyLang(lang) {
+      var t = TRANS[lang];
+      document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var key = el.dataset.i18n;
+        if (t[key] !== undefined) el.innerHTML = t[key];
+      });
+      var btn = document.getElementById('langBtn');
+      if (btn) btn.textContent = lang === 'es' ? 'FR' : 'ES';
+      document.documentElement.lang = lang;
+      localStorage.setItem('sc-lang', lang);
+    }
+
+    window.toggleLang = function() {
+      applyLang((localStorage.getItem('sc-lang') || 'fr') === 'fr' ? 'es' : 'fr');
+    };
+
+    applyLang(localStorage.getItem('sc-lang') || 'fr');
+  </script>
 
 </body>
 </html>
